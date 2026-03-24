@@ -1,0 +1,17 @@
+name: test-sha-resolution
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Control - parent SHA should run benign action
+        uses: iaingalloway/action-fork-reference-parent@a098a17ffcc3457f2ee6620147cbf9d149c64978
+
+      - name: Test - fork-only SHA against parent repo name
+        uses: iaingalloway/action-fork-reference-parent@2f80bfdfa64f0546ce778952907d81021045cee7
